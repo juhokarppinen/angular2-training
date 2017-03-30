@@ -5,12 +5,15 @@ import { routes } from './routes';
 import { RouterModule } from '@angular/router';
 import {SearchService} from './search.service';
 import {HttpModule} from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [SearchComponent],
   providers: [SearchService]
