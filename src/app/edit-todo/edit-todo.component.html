@@ -1,5 +1,5 @@
 <h2>Edit TODO</h2>
-<div>
+<!--<div>
   Task:
   <input [(ngModel)]="itemName">
 </div>
@@ -10,4 +10,42 @@
 <div>
   <button [routerLink]="'/todos'">Back</button>
   <button (click)="save()">Save</button>
-</div>
+</div>-->
+<form novalidate #editForm="ngForm" (submit)="editForm.valid && save()">
+  <div>
+    Name:
+    <input type="text"
+           [(ngModel)]="itemName"
+           #name="ngModel"
+           required
+           name="name"
+    >
+  </div>
+  <div *ngIf="name.invalid && name.touched">
+    Name is required
+  </div>
+  <div>
+    Assignee:
+    <input type="text"
+           [(ngModel)]="itemAssignee"
+           #assignee="ngModel"
+           required
+           minlength="3"
+           name="assignee"
+    >
+  </div>
+  <div *ngIf="assignee.invalid && assignee.touched">
+    Assignee has to be 3 characters long
+  </div>
+  <button [routerLink]="'/todos'">Back</button>
+  <button type="submit" [disabled]="editForm.invalid">Save</button>
+
+  <div [hidden]="editForm.valid">
+    Form is invalid
+  </div>
+
+  <div>
+    {{editForm.value | json}}
+  </div>
+</form>
+
