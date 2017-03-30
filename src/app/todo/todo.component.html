@@ -1,0 +1,10 @@
+<div [class.done]="inputTodo.done"
+     [class.highlight]="inputTodo.highlight"
+     (mouseenter)="inputTodo.highlight = true"
+     (mouseleave)="inputTodo.highlight = false"
+     (click)="inputTodo.done = !inputTodo.done">
+
+  <button [routerLink]="['/edit-todo', index]">Edit</button>
+  {{index + 1}}. {{inputTodo.name}} / {{inputTodo.assignee}}
+
+</div>

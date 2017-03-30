@@ -1,0 +1,10 @@
+<h2>TODOs</h2>
+<app-todo *ngFor="let todo of todoService.todos; let i = index;"
+          [inputTodo]="todo"
+          [index]="i">
+</app-todo>
+
+<input type="text"
+       placeholder="todo"
+       [(ngModel)]="newName">
+<button (click)="addTodo()">Add todo</button>

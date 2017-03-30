@@ -1,0 +1,13 @@
+<h2>Edit TODO</h2>
+<div>
+  Task:
+  <input [(ngModel)]="itemName">
+</div>
+<div>
+  Assigned to:
+  <input [(ngModel)]="itemAssignee">
+</div>
+<div>
+  <button [routerLink]="'/todos'">Back</button>
+  <button (click)="save()">Save</button>
+</div>
