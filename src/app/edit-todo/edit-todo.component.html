@@ -1,4 +1,5 @@
-<h2>Edit TODO</h2>
+<h1>Edit TODO</h1>
+
 <!--<div>
   Task:
   <input [(ngModel)]="itemName">
@@ -11,6 +12,7 @@
   <button [routerLink]="'/todos'">Back</button>
   <button (click)="save()">Save</button>
 </div>-->
+
 <form novalidate #editForm="ngForm" (submit)="editForm.valid && save()">
   <div>
     Name:
