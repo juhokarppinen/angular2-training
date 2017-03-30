@@ -1,4 +1,4 @@
-<h1>Github Search</h1>
+<h1>GitHub Search</h1>
 
 <!-- [(ngModel)] is a two-way binding to a component's property, which enables displaying and changing the property
      concurrently. It requires an import of FormsModule inside the component's module.
@@ -6,13 +6,21 @@
 <input type="text" [(ngModel)]="searchTerm" placeholder="search...">
 <button (click)="search(searchTerm)">Search</button> -->
 
-<!-- Optionally you can opt to use a template variable binding using the hash: #searchTerm.
-     Get the input field's value from the .value property. -->
+<!--  Optionally you can opt to use a template variable binding using the hash: #searchTerm.
+      Get the input field's value from the .value property. -->
 
-input type="text" #searchTerm placeholder="search...">
-<button (click)="search(searchTerm.value)">Search</button>
+<input type="text"
+       #searchTerm
+       placeholder="search..."
+       [formControl]="control"> <!-- Formcontrol listens to changes in the input field's value -->
 
-<!-- note the [href] in square brackets! This enables the property bindings to work. -->
+<!--  Were the search not implemented reactively, you could call the search method
+      manually via the button press.
+<button (click)="search(searchTerm.value)">Search</button> -->
+
+<!--  note the [href] in square brackets! This enables the property bindings to work.
+      Also note the usage of the async pipe which allows iterating over the elements
+      of an observable stream. -->
 <div *ngFor="let item of searchStream | async">
   <a [href]="item.html_url">{{item.full_name}}</a>
 </div>
