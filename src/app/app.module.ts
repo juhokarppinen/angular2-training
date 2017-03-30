@@ -10,6 +10,7 @@ import {TodoService} from './todo.service';
 import {routes} from './routes';
 import {RouterModule} from '@angular/router';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
+import {SearchModule} from './search/search.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditTodoComponent } from './edit-todo/edit-todo.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    SearchModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
